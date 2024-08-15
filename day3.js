@@ -31,7 +31,6 @@ let calculator = {
         result =  this.x * this.y
         this.history.push({"Multiplication:":result})
         return result
-
     },
     divide: function(){
         result =  this.x/this.y
@@ -45,7 +44,6 @@ calculator.subtract();
 calculator.multiply();
 calculator.divide();
 console.log(calculator.history);
-
 /*calculator.history = [];
 calculator.add = function(){
     calculator.history.push("Addition:", calculator.x + calculator.y);
@@ -90,7 +88,7 @@ console.log("After decrement:", person.age);
 person.down();
 console.log("After decrement:", person.age);
 
-person.greet = function(){ 
+person.greet = function(){
     return `Hello, ${this.name}!`
 }
 person.name = prompt("Enter a name:");
@@ -105,7 +103,9 @@ let circle = {
 circle.radius = prompt("Enter the radius of circle:");
 console.log(circle.area())
 
-circle.circumference = () =>{return `The circumference of the circle of radius ${this.radius} is ${2*3.14*circle.radius}`}
+circle.circumference = () =>{
+    return `The circumference of the circle of radius ${this.radius} is ${2*3.14*circle.radius}`
+}
 circle.diameter = function(){
     return `The diameter of the circle of radius ${this.radius} is ${2*this.radius}`
 }
@@ -134,6 +134,7 @@ console.log(account.balance);
 console.log(account.deposit(3));
 console.log(account.withdraw(1000000000000000));
 console.log(account.withdraw(100));
+
 
 let fruits = ["Apple", "Orange"];
 console.log(fruits);
@@ -188,7 +189,49 @@ const movies = ['Ghilli', 'Poove Unakaga', 'Master', '96', 'Vinnai Thaandi Varuv
 movies.push(prompt("Enter your favorite movie:"));
 console.log(movies);
 
-movies.splice(2, 1)    //(Index, How many from index)
+movies.splice(2, 1)              //(Index, How many from index)
 console.log(movies);
 
 
+let arr1 = [10, 7, 18, 17, 45];
+let squared = arr1.map(temp => temp**2);
+console.log(squared);
+
+console.log(arr1.filter(temp => temp%2==0))
+
+let price = [100, 200, 4108, 90000];
+let total = price.reduce((accumulator, currentValue) => accumulator+currentValue, 0);
+console.log(total);
+
+let stringray = ["Steve Rogers", "Tony Stark", "Thor Odinson", "Bruce Banner", "Natasha Romanoff", "Clint Barton"];
+let len = stringray.map(i => i.length);
+console.log(len);
+
+stringray.splice(2, 2, "replaced!");
+console.log(stringray);
+
+console.log(price.slice(1, 4));
+
+names = ['Ashok', 'Vijaykumar', 'Parthiban', 'Rahul', 'Anjali', 'Abi', 'Harshithah'];
+let Anames = names.filter(i => (i[0]=='A' || i[0]=='a'));
+console.log(names);
+console.log(Anames);
+
+scores = [100, 95, 82, 82, 76];
+console.log(scores);
+function grade(i){
+    if(i>89) return 'A'
+    else if(i>79) return 'B'
+    else if(i>69) return 'C'
+    else return 'D'
+}
+grades = scores.map(grade);
+console.log(grades);
+
+let ages = [100, 95, 82, 82, 76];
+average_age = ages.reduce((accumulator, currentValue) => (accumulator+currentValue)/5, 0);
+console.log(`Average of ages: ${average_age}`);
+
+fruits_ = fruits.concat(['Mango', 'Strawberry', 'Pineapple']);
+fruits_.splice(2, 0, "Banana", "Blueberry");
+console.log(fruits_);
